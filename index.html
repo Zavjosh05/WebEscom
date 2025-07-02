@@ -1,0 +1,126 @@
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+    nav {
+        width: 250px;
+        background-color: #003366;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    nav h2 {
+        color: #00aaff;
+        margin-bottom: 30px;
+    }
+    nav a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        margin: 15px 0;
+        font-size: 1.1em;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    nav a:hover {
+        color: #00aaff;
+        transform: translateX(5px);
+    }
+    main {
+        flex-grow: 1;
+        padding: 40px;
+        background: linear-gradient(to right, #e6f0ff, #ffffff);
+        animation: fadein 1s ease-in;
+        color: #002b80;
+    }
+    h1 {
+        font-size: 2em;
+        color: #005fcb;
+    }
+    p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+    @keyframes fadein {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal */
+    #modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+    #modal-content {
+        position: relative;
+        margin: 5% auto;
+        width: 80%;
+        height: 80%;
+        background: white;
+        box-shadow: 0 0 10px #000;
+        border-radius: 8px;
+        overflow: hidden;
+        animation: fadein 0.4s ease-in;
+    }
+    #modal iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    #modal .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+        font-weight: bold;
+    }
+</style>
+
+<div id="container">
+    <nav>
+        <h2>Mis Páginas</h2>
+        <a onclick="openModal('AngularProyecto.html')">Angular Proyecto</a>
+        <a onclick="openModal('ApiSpringBoot.html')">API Spring Boot</a>
+        <a onclick="openModal('Conexion.html')">Conexión</a>
+        <a onclick="openModal('EjerciciosJavaScript/RecapJS.html')">Ejercicios JS</a>
+        <a onclick="openModal('PresentacionHTML/RecapHTML.html')">HTML Recap</a>
+    </nav>
+    <main>
+        <h1>Joshua Ivan Zavaleta Guerrero</h1>
+        <p>
+            Me gustaría trabajar investigando en inteligencia artificial, computación cuántica o integración de implantes cerebrales. 
+            Tengo un gran interés por empresas como Steam, Neuralink, Google, y otras que estén a la vanguardia en ciencia y tecnología. 
+            Mi pasión es explorar la frontera entre la tecnología y la mente humana.
+        </p>
+    </main>
+</div>
+
+<div id="modal">
+    <div id="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modal-iframe" src=""></iframe>
+    </div>
+</div>
+
+<script>
+    function openModal(page) {
+        document.getElementById('modal-iframe').src = page;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('modal-iframe').src = '';
+    }
+</script>

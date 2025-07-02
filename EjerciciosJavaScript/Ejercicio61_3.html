@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Ejercicio 61_3</title>
+
+<style>
+    body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        color: #003366;
+        padding: 20px;
+    }
+    h1, h2, h3 {
+        color: #005fcb;
+    }
+    button, input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover, input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    input, select, textarea {
+        border: 1px solid #007bff;
+        padding: 6px;
+        margin: 4px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<h1>Leer dos números y realizar el producto mediante sumas</h1>
+<table border="1">
+<tr>
+<td>
+<label>Primer factor</label>
+</td>
+<td>
+<input id="primerFactor" oninput="validarEntradasVacias()" type="number"/>
+</td>
+</tr>
+<tr>
+<td>
+<label>Segundo factor</label>
+</td>
+<td>
+<input id="segundoFactor" oninput="validarEntradasVacias()" type="number"/>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">Resultado</td>
+</tr>
+<tr id="tablaMultiplicacion">
+<td align="center" colspan="2">
+<label id="productoLabel">Ingrese datos</label>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+    function validarEntradasVacias()
+    {
+        let productoLabel = document.getElementById("productoLabel");
+        let primerFactorInput = document.getElementById("primerFactor");
+        let segundoFactorInput = document.getElementById("segundoFactor");
+
+        if (primerFactorInput.value != "")
+        {
+            if(segundoFactorInput.value != "")
+            {
+                tablaMultiplicacion.style.visibility = "visible";
+                multiplicacion(primerFactorInput, segundoFactorInput, productoLabel);
+            }
+            else
+                productoLabel.innerText = "Ingrese un numero en el factor 2";
+        }
+        else
+            productoLabel.innerText = "Ingrese un numero en el factor 1";
+    }
+    function multiplicacion(primerFactorInput, segundoFactorInput, productoLabel)
+    {
+        let productoAux = 0;
+        let variableFor;
+
+        for (variableFor = 0; variableFor < primerFactorInput.value; variableFor++)
+            productoAux += parseFloat(segundoFactorInput.value);
+        productoLabel.innerText = productoAux.toString();
+    }
+</script>
+</body>
+</html>

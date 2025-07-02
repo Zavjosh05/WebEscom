@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Ejercicio Pagina 52</title>
+
+<style>
+    body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        color: #003366;
+        padding: 20px;
+    }
+    h1, h2, h3 {
+        color: #005fcb;
+    }
+    button, input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover, input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    input, select, textarea {
+        border: 1px solid #007bff;
+        padding: 6px;
+        margin: 4px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<h1>Obtener los núros pares entre 1 y 100 con la estructura de repetición while</h1>
+<script type="text/javascript">
+        let i = 1, modulo;
+        while (i <= 100)
+        {
+            modulo = i % 2;
+            if (!modulo)
+                document.write(i + " ");
+            i++;
+        }
+    </script>
+<h1>Obtener la suma de los primeros 100 números con la estructura de repetición while</h1>
+<script type="text/javascript">
+        i = 1;
+        let suma = 0;
+        while (i <= 100)
+            suma += i++;
+        document.write("La suma de los números es: " + suma);
+    </script>
+</body>
+</html>

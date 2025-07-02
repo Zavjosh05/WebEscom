@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Ejercicio 61_7</title>
+
+<style>
+    body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        color: #003366;
+        padding: 20px;
+    }
+    h1, h2, h3 {
+        color: #005fcb;
+    }
+    button, input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover, input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    input, select, textarea {
+        border: 1px solid #007bff;
+        padding: 6px;
+        margin: 4px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<h1>Dado una secuencia de números leidos y almacenados en un arreglo A mostrar dichos números en orden</h1>
+<table>
+<tr>
+<td>
+            Ingresa el número
+        </td>
+</tr>
+<tr>
+<td>
+<input id="inputNumero" onkeypress="ordenarArreglo(event)" type="number"/>
+</td>
+</tr>
+<tr>
+<table id="tablaNumerosOrdenados">
+<tr>
+</tr>
+</table>
+</tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+    var arregloNumeros = [];
+    var inputNumero = document.getElementById("inputNumero");
+    var tablaNumerosOrdenados = document.getElementById("tablaNumerosOrdenados");
+    var tamanoArregloNumeros = 0;
+    var auxNumero = 0, auxNumero2 = 0;
+
+    function ordenarArreglo(event)
+    {
+        let i;
+        if (event.key === "Enter")
+        {
+            if (tamanoArregloNumeros == 0)
+            {
+                arregloNumeros.push(parseInt(inputNumero.value));
+                tamanoArregloNumeros++;
+                agregarAtabla();
+                return;
+            }
+            else
+                auxNumero = parseInt(inputNumero.value);
+
+
+            tamanoArregloNumeros++;
+
+            for (i = 0; i < tamanoArregloNumeros; i++)
+            {
+                if (auxNumero > arregloNumeros[i])
+                {
+                    auxNumero2 = arregloNumeros[i];
+                    arregloNumeros[i] = auxNumero;
+                    auxNumero = auxNumero2;
+                }
+                if (i == (tamanoArregloNumeros-1))
+                    arregloNumeros.push(auxNumero)
+            }
+
+            agregarAtabla();
+        }
+    }
+
+    function agregarAtabla()
+    {
+        tablaNumerosOrdenados.rows[0].insertCell();
+        for (i = 0; i < tamanoArregloNumeros; i++)
+        {
+            tablaNumerosOrdenados.rows[0].cells[i].innerHTML = arregloNumeros[i];
+        }
+    }
+</script>

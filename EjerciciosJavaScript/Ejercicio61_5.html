@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Ejercicio 61+5</title>
+
+<style>
+    body {
+        background-color: #f0f8ff;
+        font-family: Arial, sans-serif;
+        color: #003366;
+        padding: 20px;
+    }
+    h1, h2, h3 {
+        color: #005fcb;
+    }
+    button, input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        margin: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover, input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    input, select, textarea {
+        border: 1px solid #007bff;
+        padding: 6px;
+        margin: 4px;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<h1>Dado dos vectores A y B de n elementos cada uno, obtener un arreglo C donde la posición u se almacene la suma A[i] + B[i]</h1>
+<table border="2" id="tablaSuma">
+<tr>
+<td align="center" colspan="10">Posición</td>
+</tr>
+<tr>
+<script type="text/javascript">
+      let i;
+      for(i=1; i<11; i++)
+        document.write("<td>"+ i +"</td>");
+    </script>
+</tr>
+<tr>
+<td align="center" colspan="10">Arreglo 1</td>
+</tr>
+<tr>
+<script type="text/javascript">
+
+      var numeros = [];
+
+      for(i=0; i<10; i++)
+        numeros[i] = Math.floor(Math.random() * 11);
+
+      for(i=0; i<10; i++)
+        document.write("<td>"+ numeros[i] +"</td>");
+    </script>
+</tr>
+<tr>
+<td align="center" colspan="10">Arreglo 2</td>
+</tr>
+<tr>
+<script type="text/javascript">
+
+      var numeros = [];
+
+      for(i=0; i<10; i++)
+        numeros[i] = Math.floor(Math.random() * 11);
+
+      for(i=0; i<10; i++)
+        document.write("<td>"+ numeros[i] +"</td>");
+    </script>
+</tr>
+<tr>
+<td align="center" colspan="10">Resultado</td>
+</tr>
+<tr>
+<script type="text/javascript">
+      let tabla = document.getElementById("tablaSuma");
+
+      for(i=0; i<10; i++)
+        document.write("<td>"+ ((parseInt(tabla.rows[3].cells[i].getHTML())) + (parseInt(tabla.rows[5].cells[i].getHTML()))) +"</td>");
+    </script>
+</tr>
+<tr>
+<td align="center" colspan="10">
+<button onclick="location.reload()">Reiniciar</button>
+</td>
+</tr>
+</table>
+</body>
+</html>
